@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Shield, Download } from "lucide-react";
+import { Menu, X, BarChart3, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -26,7 +26,7 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-primary" />
+            <BarChart3 className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold">Portfolio</span>
           </div>
 

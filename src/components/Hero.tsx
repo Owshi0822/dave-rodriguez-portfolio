@@ -1,5 +1,5 @@
 
-import { ArrowRight, Shield, BarChart3, Search } from "lucide-react";
+import { ArrowRight, Network, BarChart3, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -9,29 +9,29 @@ export function Hero() {
         <div className="text-center space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              Cybersecurity Analyst &
+              Data Analyst &
               <br />
-              <span className="text-primary">Data Intelligence Expert</span>
+              <span className="text-primary">Network Specialist</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Passionate about threat intelligence analysis and data-driven insights. 
-              Bridging the gap between cybersecurity and analytics to protect organizations 
-              and drive informed decision-making.
+              Passionate about data analysis and network infrastructure design. 
+              Leveraging Microsoft Excel for data-driven insights and Cisco Packet Tracer 
+              for network configuration and optimization.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <Shield className="h-4 w-4 text-primary" />
-              <span>Threat Intelligence</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
               <BarChart3 className="h-4 w-4 text-primary" />
-              <span>Data Analytics</span>
+              <span>Data Analysis</span>
             </div>
             <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <Search className="h-4 w-4 text-primary" />
-              <span>Security Research</span>
+              <Database className="h-4 w-4 text-primary" />
+              <span>Microsoft Excel</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
+              <Network className="h-4 w-4 text-primary" />
+              <span>Network Design</span>
             </div>
           </div>
 

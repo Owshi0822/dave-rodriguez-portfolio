@@ -14,11 +14,11 @@ export function Certifications() {
       verified: true
     },
     {
-      title: "Cybersecurity Fundamentals",
-      issuer: "Security Institute",
+      title: "Cisco Network Fundamentals",
+      issuer: "Cisco Networking Academy",
       date: "2023",
-      description: "Foundation certification in cybersecurity principles and threat analysis.",
-      skills: ["Threat Analysis", "Security Frameworks", "Risk Assessment"],
+      description: "Comprehensive certification covering network design and configuration using Cisco Packet Tracer.",
+      skills: ["Network Design", "Cisco Packet Tracer", "Network Protocols", "Troubleshooting"],
       verified: true
     }
   ];
@@ -29,7 +29,7 @@ export function Certifications() {
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl font-bold">Certifications</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Continuous learning and professional development in cybersecurity and data analytics
+            Continuous learning and professional development in data analytics and networking
           </p>
         </div>
 

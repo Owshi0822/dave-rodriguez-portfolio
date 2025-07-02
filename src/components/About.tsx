@@ -1,10 +1,10 @@
 
-import { Users, TrendingUp, Shield, Award } from "lucide-react";
+import { Users, TrendingUp, Network, Award } from "lucide-react";
 
 export function About() {
   const stats = [
-    { icon: Shield, label: "Security Projects", value: "15+" },
-    { icon: TrendingUp, label: "Data Analyses", value: "50+" },
+    { icon: TrendingUp, label: "Data Projects", value: "25+" },
+    { icon: Network, label: "Networks Designed", value: "15+" },
     { icon: Users, label: "Teams Supported", value: "8+" },
     { icon: Award, label: "Certifications", value: "3+" },
   ];
@@ -17,19 +17,19 @@ export function About() {
             <h2 className="text-3xl font-bold">About Me</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                I'm a dedicated cybersecurity professional with a passion for threat intelligence 
-                and data analytics. My journey combines technical expertise with analytical thinking 
-                to identify, assess, and mitigate security threats.
+                I'm a dedicated data analyst with expertise in Microsoft Excel and network design. 
+                My journey combines analytical thinking with technical skills to transform raw data 
+                into actionable insights and design efficient network infrastructures.
               </p>
               <p>
                 With a strong foundation in data analytics and hands-on experience as a Project 
-                Support Officer, I bring a unique perspective to cybersecurity challenges. My 
+                Support Officer, I excel at creating complex Excel models and visualizations. My 
                 background in procurement and logistics has strengthened my attention to detail 
                 and process optimization skills.
               </p>
               <p>
-                I'm committed to continuous learning and staying ahead of emerging threats while 
-                leveraging data-driven insights to build robust security frameworks.
+                I'm passionate about leveraging Cisco Packet Tracer for network simulation and 
+                design, while using advanced Excel functions to drive data-driven decision making.
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Shield, BarChart3, Database, Search } from "lucide-react";
+import { ExternalLink, Github, Network, BarChart3, Database, FileSpreadsheet } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,34 +7,34 @@ import { Badge } from "@/components/ui/badge";
 export function Projects() {
   const projects = [
     {
-      title: "Threat Intelligence Dashboard",
-      description: "Interactive dashboard for visualizing security threats and attack patterns using real-time data feeds.",
-      icon: Shield,
-      technologies: ["Python", "React", "D3.js", "API Integration"],
-      category: "Cybersecurity",
-      status: "In Progress"
-    },
-    {
-      title: "Supply Chain Risk Analysis",
-      description: "Data analytics project analyzing procurement patterns and identifying potential supply chain vulnerabilities.",
-      icon: BarChart3,
-      technologies: ["Python", "Pandas", "Tableau", "SQL"],
+      title: "Sales Performance Dashboard",
+      description: "Advanced Excel dashboard with pivot tables, dynamic charts, and VBA macros for real-time sales analysis.",
+      icon: FileSpreadsheet,
+      technologies: ["Microsoft Excel", "VBA", "Pivot Tables", "Power Query"],
       category: "Data Analytics",
       status: "Completed"
     },
     {
-      title: "Security Incident Correlation",
-      description: "Machine learning model to correlate security incidents and predict potential threat escalation.",
-      icon: Search,
-      technologies: ["Python", "Scikit-learn", "TensorFlow", "Jupyter"],
-      category: "Machine Learning",
+      title: "Corporate Network Design",
+      description: "Complete network infrastructure design for a medium-sized company using Cisco Packet Tracer.",
+      icon: Network,
+      technologies: ["Cisco Packet Tracer", "VLAN Configuration", "Routing Protocols", "Network Security"],
+      category: "Network Design",
+      status: "Completed"
+    },
+    {
+      title: "Financial Forecasting Model",
+      description: "Excel-based predictive model using regression analysis and statistical functions for budget planning.",
+      icon: BarChart3,
+      technologies: ["Excel", "Statistical Analysis", "Data Modeling", "Financial Functions"],
+      category: "Financial Analysis",
       status: "In Progress"
     },
     {
-      title: "Operational Efficiency Analysis",
-      description: "Comprehensive analysis of operational processes with recommendations for efficiency improvements.",
+      title: "Supply Chain Database",
+      description: "Comprehensive database design with Excel integration for tracking procurement and logistics operations.",
       icon: Database,
-      technologies: ["Excel", "Power BI", "SQL", "Statistical Analysis"],
+      technologies: ["Excel", "Access", "SQL", "Data Validation"],
       category: "Business Intelligence",
       status: "Completed"
     }
@@ -50,7 +50,7 @@ export function Projects() {
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl font-bold">Featured Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my work in cybersecurity analysis and data-driven insights
+            A showcase of my work in data analysis and network design projects
           </p>
         </div>
 
