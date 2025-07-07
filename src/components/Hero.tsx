@@ -1,5 +1,5 @@
 
-import { ArrowRight, Network, BarChart3, Database } from "lucide-react";
+import { ArrowRight, Cpu, Code, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -9,29 +9,29 @@ export function Hero() {
         <div className="text-center space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              Data Analyst &
+              Dave C. Rodriguez
               <br />
-              <span className="text-primary">Network Specialist</span>
+              <span className="text-primary">Electronics & Communications Engineering Student</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Passionate about data analysis and network infrastructure design. 
-              Leveraging Microsoft Excel for data-driven insights and Cisco Packet Tracer 
-              for network configuration and optimization.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Motivated and goal-oriented Electronics Engineering student seeking an entry-level position 
+              to apply academic knowledge in a real-world setting, enhance technical competencies, 
+              and gain hands-on experience in industry-standard tools, systems, and engineering practices.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <BarChart3 className="h-4 w-4 text-primary" />
-              <span>Data Analysis</span>
+              <Cpu className="h-4 w-4 text-primary" />
+              <span>Electronics Engineering</span>
             </div>
             <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <Database className="h-4 w-4 text-primary" />
-              <span>Microsoft Excel</span>
+              <Code className="h-4 w-4 text-primary" />
+              <span>Programming</span>
             </div>
             <div className="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <Network className="h-4 w-4 text-primary" />
-              <span>Network Design</span>
+              <Wrench className="h-4 w-4 text-primary" />
+              <span>Hardware Systems</span>
             </div>
           </div>
 

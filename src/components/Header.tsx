@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, BarChart3, Download } from "lucide-react";
+import { Menu, X, Cpu, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -10,9 +10,12 @@ export function Header() {
   const menuItems = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
+    { label: "Education", href: "#education" },
+    { label: "Skills", href: "#skills" },
     { label: "Experience", href: "#experience" },
-    { label: "Certifications", href: "#certifications" },
     { label: "Projects", href: "#projects" },
+    { label: "Trainings", href: "#trainings" },
+    { label: "References", href: "#references" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -26,12 +29,12 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            <BarChart3 className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold">Portfolio</span>
+            <Cpu className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold">Dave C. Rodriguez</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {menuItems.map((item) => (
               <a
                 key={item.label}

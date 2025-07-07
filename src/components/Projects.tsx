@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Network, BarChart3, Database, FileSpreadsheet } from "lucide-react";
+import { ExternalLink, Github, Cpu, BarChart3, Zap, Database } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,41 +7,45 @@ import { Badge } from "@/components/ui/badge";
 export function Projects() {
   const projects = [
     {
-      title: "Sales Performance Dashboard",
-      description: "Advanced Excel dashboard with pivot tables, dynamic charts, and VBA macros for real-time sales analysis.",
-      icon: FileSpreadsheet,
-      technologies: ["Microsoft Excel", "VBA", "Pivot Tables", "Power Query"],
-      category: "Data Analytics",
-      status: "Completed"
+      title: "PICS DIMIX",
+      description: "IoT + Neural Network Paint Dispenser System that combines hardware automation with machine learning for precise color mixing and dispensing.",
+      icon: Cpu,
+      technologies: ["IoT", "Neural Networks", "Arduino", "Python", "Machine Learning"],
+      category: "IoT & AI",
+      status: "Completed",
+      year: "2025"
     },
     {
-      title: "Corporate Network Design",
-      description: "Complete network infrastructure design for a medium-sized company using Cisco Packet Tracer.",
-      icon: Network,
-      technologies: ["Cisco Packet Tracer", "VLAN Configuration", "Routing Protocols", "Network Security"],
-      category: "Network Design",
-      status: "Completed"
-    },
-    {
-      title: "Financial Forecasting Model",
-      description: "Excel-based predictive model using regression analysis and statistical functions for budget planning.",
+      title: "Procurement Dashboard",
+      description: "Automated Purchase Order system utilizing Vibe Coding and Gmail automation to streamline procurement processes and documentation.",
       icon: BarChart3,
-      technologies: ["Excel", "Statistical Analysis", "Data Modeling", "Financial Functions"],
-      category: "Financial Analysis",
-      status: "In Progress"
+      technologies: ["Vibe Coding", "Gmail API", "Automation", "Dashboard", "VBA"],
+      category: "Business Automation",
+      status: "Completed",
+      year: "2024"
     },
     {
-      title: "Supply Chain Database",
-      description: "Comprehensive database design with Excel integration for tracking procurement and logistics operations.",
+      title: "Electronics Circuit Design",
+      description: "Comprehensive circuit design and analysis projects using industry-standard tools for various electronics applications.",
+      icon: Zap,
+      technologies: ["DipTrace", "MATLAB", "Circuit Analysis", "PCB Design"],
+      category: "Electronics Design",
+      status: "Ongoing",
+      year: "2024"
+    },
+    {
+      title: "Network Infrastructure Design",
+      description: "Complete network design and simulation projects using Cisco Packet Tracer for various organizational requirements.",
       icon: Database,
-      technologies: ["Excel", "Access", "SQL", "Data Validation"],
-      category: "Business Intelligence",
-      status: "Completed"
+      technologies: ["Cisco Packet Tracer", "Network Design", "Routing", "Switching"],
+      category: "Network Engineering",
+      status: "Completed",
+      year: "2024"
     }
   ];
 
   const getStatusColor = (status: string) => {
-    return status === "Completed" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800";
+    return status === "Completed" ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200" : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
   };
 
   return (
@@ -50,7 +54,7 @@ export function Projects() {
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl font-bold">Featured Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my work in data analysis and network design projects
+            Showcasing innovative engineering projects combining IoT, automation, and data analysis
           </p>
         </div>
 
@@ -63,9 +67,12 @@ export function Projects() {
                     <project.icon className="h-6 w-6 text-primary" />
                     <div>
                       <CardTitle className="text-lg">{project.title}</CardTitle>
-                      <Badge variant="secondary" className="mt-1">
-                        {project.category}
-                      </Badge>
+                      <div className="flex items-center gap-2 mt-1">
+                        <Badge variant="secondary">
+                          {project.category}
+                        </Badge>
+                        <span className="text-xs text-muted-foreground">{project.year}</span>
+                      </div>
                     </div>
                   </div>
                   <div className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
@@ -90,7 +97,7 @@ export function Projects() {
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" className="flex-1">
                     <ExternalLink className="h-4 w-4 mr-2" />
-                    View Project
+                    View Details
                   </Button>
                   <Button variant="outline" size="sm" className="flex-1">
                     <Github className="h-4 w-4 mr-2" />

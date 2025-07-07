@@ -5,16 +5,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export function Experience() {
   const experiences = [
     {
-      title: "Project Support Officer",
-      company: "Professional Services Firm",
-      location: "Remote",
-      duration: "2023 - Present",
+      title: "Project Support Officer Intern",
+      company: "CMR Philippines Inc.",
+      location: "Philippines",
+      duration: "May – July 2025",
       type: "Internship",
       description: [
-        "Managed procurement processes and logistics coordination",
-        "Analyzed supply chain data to optimize operational efficiency",
-        "Supported project teams with data-driven insights and reporting",
-        "Collaborated with cross-functional teams to ensure project deliverables"
+        "Coordinated procurement processes and sourcing of materials for engineering projects",
+        "Provided comprehensive documentation support for project deliverables",
+        "Collaborated with engineering teams to ensure project requirements were met",
+        "Supported logistics coordination and supply chain management activities",
+        "Assisted in project planning and resource allocation processes"
       ]
     }
   ];
@@ -23,9 +24,9 @@ export function Experience() {
     <section id="experience" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl font-bold">Professional Experience</h2>
+          <h2 className="text-3xl font-bold">Work Experience</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Building expertise through hands-on experience and continuous learning
+            Professional experience in project support and engineering collaboration
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, MapPin } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Phone } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,25 +10,31 @@ export function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com"
+      value: "davecabrerarodriguez22@gmail.com",
+      href: "mailto:davecabrerarodriguez22@gmail.com"
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "0994-919-5797",
+      href: "tel:0994-919-5797"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/yourprofile",
-      href: "https://linkedin.com/in/yourprofile"
+      value: "dave-rodriguez-0b2034256",
+      href: "https://linkedin.com/in/dave-rodriguez-0b2034256"
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/yourusername",
-      href: "https://github.com/yourusername"
+      value: "Owshi0822",
+      href: "https://github.com/Owshi0822"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Your City, Country",
+      value: "Alabang, Muntinlupa City, Philippines",
       href: null
     }
   ];
@@ -39,7 +45,7 @@ export function Contact() {
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl font-bold">Get In Touch</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Let's discuss opportunities in cybersecurity and data analytics
+            Let's discuss opportunities in electronics engineering and technology projects
           </p>
         </div>
 
@@ -69,11 +75,12 @@ export function Contact() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Areas of Interest</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Threat Intelligence Analysis</li>
-                <li>• Cybersecurity Consulting</li>
-                <li>• Data Analytics Projects</li>
-                <li>• Security Research Collaboration</li>
-                <li>• Speaking Opportunities</li>
+                <li>• Electronics & Communications Engineering</li>
+                <li>• IoT System Development</li>
+                <li>• Automation & Control Systems</li>
+                <li>• Circuit Design & Analysis</li>
+                <li>• Project Collaboration</li>
+                <li>• Internship & Entry-level Opportunities</li>
               </ul>
             </div>
           </div>
@@ -95,7 +102,7 @@ export function Contact() {
               </div>
               <div>
                 <label className="text-sm font-medium">Subject</label>
-                <Input placeholder="Project collaboration" />
+                <Input placeholder="Project collaboration or opportunity" />
               </div>
               <div>
                 <label className="text-sm font-medium">Message</label>
