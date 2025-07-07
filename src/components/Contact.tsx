@@ -60,18 +60,37 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all fields before sending your message.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      console.log('Sending email with data:', formData);
+      
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
+        body: {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        }
       });
+
+      console.log('Response:', { data, error });
 
       if (error) {
         console.error('Error sending email:', error);
         toast({
           title: "Error",
-          description: "Failed to send message. Please try again or contact me directly.",
+          description: "Failed to send message. Please try again or contact me directly at davecabrerarodriguez22@gmail.com",
           variant: "destructive",
         });
       } else {
@@ -92,7 +111,7 @@ export function Contact() {
       console.error('Error:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact me directly.",
+        description: "Failed to send message. Please try again or contact me directly at davecabrerarodriguez22@gmail.com",
         variant: "destructive",
       });
     } finally {
