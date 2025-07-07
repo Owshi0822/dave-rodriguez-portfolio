@@ -10,12 +10,9 @@ export function Header() {
   const menuItems = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
-    { label: "Education", href: "#education" },
-    { label: "Skills", href: "#skills" },
+    { label: "Education & Skills", href: "#education" },
     { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Trainings", href: "#trainings" },
-    { label: "References", href: "#references" },
+    { label: "Projects & Trainings", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ];
 
