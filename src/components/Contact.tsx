@@ -1,11 +1,23 @@
 
+import { useState } from "react";
 import { Mail, Linkedin, Github, MapPin, Phone } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
   const contactInfo = [
     {
       icon: Mail,
@@ -38,6 +50,55 @@ export function Contact() {
       href: null
     }
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) {
+        console.error('Error sending email:', error);
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again or contact me directly.",
+          variant: "destructive",
+        });
+      } else {
+        console.log('Email sent successfully:', data);
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon!",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-muted/50">
@@ -76,9 +137,9 @@ export function Contact() {
               <h3 className="text-xl font-semibold mb-4">Areas of Interest</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>• Electronics & Communications Engineering</li>
-                <li>• IoT System Development</li>
+                <li>• Data Analysis & Microsoft Excel</li>
+                <li>• Network Configuration & Cisco Packet Tracer</li>
                 <li>• Automation & Control Systems</li>
-                <li>• Circuit Design & Analysis</li>
                 <li>• Project Collaboration</li>
                 <li>• Internship & Entry-level Opportunities</li>
               </ul>
@@ -89,26 +150,56 @@ export function Contact() {
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium">Name</label>
-                  <Input placeholder="Your name" />
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium">Name</label>
+                    <Input 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your name" 
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Email</label>
+                    <Input 
+                      name="email"
+                      type="email" 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="your.email@example.com" 
+                      required
+                    />
+                  </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium">Email</label>
-                  <Input type="email" placeholder="your.email@example.com" />
+                  <label className="text-sm font-medium">Subject</label>
+                  <Input 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="Project collaboration or opportunity" 
+                    required
+                  />
                 </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium">Subject</label>
-                <Input placeholder="Project collaboration or opportunity" />
-              </div>
-              <div>
-                <label className="text-sm font-medium">Message</label>
-                <Textarea placeholder="Tell me about your project or opportunity..." rows={5} />
-              </div>
-              <Button className="w-full">Send Message</Button>
+                <div>
+                  <label className="text-sm font-medium">Message</label>
+                  <Textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell me about your project or opportunity..." 
+                    rows={5} 
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </div>

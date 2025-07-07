@@ -1,67 +1,66 @@
 
-import { Users, TrendingUp, Award, MapPin, Phone, Mail } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function About() {
-  const stats = [
-    { icon: Award, label: "Dean's Lister", value: "2021-2023" },
-    { icon: Users, label: "Competitions", value: "Quiz & Robotics" },
-    { icon: TrendingUp, label: "Projects", value: "IoT & Automation" },
-    { icon: Award, label: "Certifications", value: "Multiple" },
-  ];
-
-  const contactInfo = [
-    { icon: Mail, label: "Email", value: "davecabrerarodriguez22@gmail.com" },
-    { icon: Phone, label: "Phone", value: "0994-919-5797" },
-    { icon: MapPin, label: "Location", value: "Alabang, Muntinlupa City, Philippines" },
-  ];
-
   return (
-    <section id="about" className="py-20 bg-muted/50">
+    <section id="about" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold">About Dave</h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                I'm a dedicated Electronics and Communications Engineering student at the 
-                Technological University of the Philippines – Taguig Campus. My passion lies 
-                in bridging the gap between theoretical knowledge and practical applications 
-                in engineering systems.
-              </p>
-              <p>
-                With hands-on experience as a Project Support Officer Intern at CMR Philippines Inc., 
-                I've developed strong skills in procurement coordination, documentation support, 
-                and engineering collaboration. My academic achievements include being a Dean's 
-                Lister from 2021-2023 and active participation in quiz shows and robotics competitions.
-              </p>
-              <p>
-                I'm passionate about IoT systems, automation, and leveraging technology to solve 
-                real-world problems. My technical skills span from programming languages like 
-                Python and C++ to hardware platforms like Arduino and Raspberry Pi.
-              </p>
-            </div>
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl font-bold">About Me</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Learn more about my background and career objectives
+          </p>
+        </div>
 
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Contact Information</h3>
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center gap-3 text-sm">
-                  <info.icon className="h-4 w-4 text-primary" />
-                  <span className="text-muted-foreground">{info.label}:</span>
-                  <span>{info.value}</span>
+        <div className="max-w-4xl mx-auto">
+          <Card>
+            <CardContent className="p-8">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Career Objective</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Motivated and goal-oriented Electronics Engineering student seeking an entry-level position 
+                    to apply academic knowledge in a real-world setting, enhance technical competencies, and gain 
+                    hands-on experience in industry-standard tools, systems, and engineering practices.
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-background rounded-lg border">
-                <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-lg font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Personal Information</h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p><span className="font-medium">Name:</span> Dave C. Rodriguez</p>
+                      <p><span className="font-medium">Location:</span> Alabang, Muntinlupa City, Philippines</p>
+                    </div>
+                    <div>
+                      <p><span className="font-medium">Email:</span> davecabrerarodriguez22@gmail.com</p>
+                      <p><span className="font-medium">Phone:</span> 0994-919-5797</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Background</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    I am a dedicated Electronics and Communications Engineering student at the Technological 
+                    University of the Philippines – Taguig Campus. My academic journey has been marked by 
+                    consistent performance as a Dean's Lister from 2021-2023, and active participation in 
+                    quiz shows and robotics competitions during 2024-2025.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Technical Focus</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    My expertise spans data analysis using Microsoft Excel, network configuration with Cisco 
+                    Packet Tracer, and various programming languages including Python, C++, and MATLAB. I'm 
+                    passionate about applying engineering principles to solve real-world problems through 
+                    automation and data-driven solutions.
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
