@@ -8,6 +8,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+// Input validation constants (matching server-side)
+const MAX_LENGTHS = {
+  name: 100,
+  email: 254,
+  subject: 200,
+  message: 5000
+};
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -52,19 +60,42 @@ export function Contact() {
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    
+    // Apply character limits
+    const maxLength = MAX_LENGTHS[name as keyof typeof MAX_LENGTHS];
+    const truncatedValue = maxLength ? value.slice(0, maxLength) : value;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: truncatedValue
     });
+  };
+
+  const validateForm = (): string | null => {
+    if (!formData.name.trim()) return "Name is required";
+    if (!formData.email.trim()) return "Email is required";
+    if (!formData.subject.trim()) return "Subject is required";
+    if (!formData.message.trim()) return "Message is required";
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return "Please enter a valid email address";
+    }
+    
+    return null;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    // Client-side validation
+    const validationError = validateForm();
+    if (validationError) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all fields before sending your message.",
+        title: "Validation Error",
+        description: validationError,
         variant: "destructive",
       });
       return;
@@ -73,14 +104,19 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      console.log('Sending email with data:', formData);
+      console.log('Sending email with data:', {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        messageLength: formData.message.length
+      });
       
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim()
         }
       });
 
@@ -90,7 +126,7 @@ export function Contact() {
         console.error('Error sending email:', error);
         toast({
           title: "Error",
-          description: "Failed to send message. Please try again or contact me directly at davecabrerarodriguez22@gmail.com",
+          description: error.message || "Failed to send message. Please try again or contact me directly at davecabrerarodriguez22@gmail.com",
           variant: "destructive",
         });
       } else {
@@ -179,8 +215,12 @@ export function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your name" 
+                      maxLength={MAX_LENGTHS.name}
                       required
                     />
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {formData.name.length}/{MAX_LENGTHS.name}
+                    </div>
                   </div>
                   <div>
                     <label className="text-sm font-medium">Email</label>
@@ -189,9 +229,13 @@ export function Contact() {
                       type="email" 
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="your.email@example.com" 
+                      placeholder="your.email@example.com"
+                      maxLength={MAX_LENGTHS.email}
                       required
                     />
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {formData.email.length}/{MAX_LENGTHS.email}
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -200,9 +244,13 @@ export function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="Project collaboration or opportunity" 
+                    placeholder="Project collaboration or opportunity"
+                    maxLength={MAX_LENGTHS.subject}
                     required
                   />
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {formData.subject.length}/{MAX_LENGTHS.subject}
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium">Message</label>
@@ -211,9 +259,13 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell me about your project or opportunity..." 
-                    rows={5} 
+                    rows={5}
+                    maxLength={MAX_LENGTHS.message}
                     required
                   />
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {formData.message.length}/{MAX_LENGTHS.message}
+                  </div>
                 </div>
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : "Send Message"}
