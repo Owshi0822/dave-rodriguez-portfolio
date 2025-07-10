@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Cpu, BarChart3, Zap, Database } from "lucide-react";
+import { ExternalLink, Github, Cpu, BarChart3, Zap, ShoppingCart } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +13,9 @@ export function Projects() {
       technologies: ["IoT", "Neural Networks", "Arduino", "Python", "Machine Learning"],
       category: "IoT & AI",
       status: "Completed",
-      year: "2025"
+      year: "2025",
+      githubUrl: "https://github.com/davecabrerarodriguez/pics-dimix",
+      demoUrl: "https://pics-dimix-demo.netlify.app"
     },
     {
       title: "Procurement Dashboard",
@@ -22,7 +24,9 @@ export function Projects() {
       technologies: ["Vibe Coding", "Gmail API", "Automation", "Dashboard", "VBA"],
       category: "Business Automation",
       status: "Completed",
-      year: "2024"
+      year: "2024",
+      githubUrl: "https://github.com/davecabrerarodriguez/procurement-dashboard",
+      demoUrl: "https://procurement-dashboard-demo.netlify.app"
     },
     {
       title: "Electronics Circuit Design",
@@ -31,21 +35,33 @@ export function Projects() {
       technologies: ["DipTrace", "MATLAB", "Circuit Analysis", "PCB Design"],
       category: "Electronics Design",
       status: "Ongoing",
-      year: "2024"
+      year: "2024",
+      githubUrl: "https://github.com/davecabrerarodriguez/electronics-circuit-design",
+      demoUrl: "https://circuit-design-portfolio.netlify.app"
     },
     {
-      title: "Network Infrastructure Design",
-      description: "Complete network design and simulation projects using Cisco Packet Tracer for various organizational requirements.",
-      icon: Database,
-      technologies: ["Cisco Packet Tracer", "Network Design", "Routing", "Switching"],
-      category: "Network Engineering",
+      title: "Rural Ordering System",
+      description: "Complete ordering system design and simulation for rural communities using modern web technologies and database management.",
+      icon: ShoppingCart,
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Payment Integration"],
+      category: "Web Development",
       status: "Completed",
-      year: "2024"
+      year: "2024",
+      githubUrl: "https://github.com/davecabrerarodriguez/rural-ordering-system",
+      demoUrl: "https://rural-ordering-system.netlify.app"
     }
   ];
 
   const getStatusColor = (status: string) => {
     return status === "Completed" ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200" : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+  };
+
+  const handleViewDetails = (demoUrl: string) => {
+    window.open(demoUrl, '_blank');
+  };
+
+  const handleSourceCode = (githubUrl: string) => {
+    window.open(githubUrl, '_blank');
   };
 
   return (
@@ -95,11 +111,21 @@ export function Projects() {
                 </div>
 
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1"
+                    onClick={() => handleViewDetails(project.demoUrl)}
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     View Details
                   </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1"
+                    onClick={() => handleSourceCode(project.githubUrl)}
+                  >
                     <Github className="h-4 w-4 mr-2" />
                     Source Code
                   </Button>

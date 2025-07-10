@@ -8,12 +8,13 @@ export function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-8">
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
               Dave C. Rodriguez
-              <br />
-              <span className="text-primary">Electronics & Communications Engineering Student</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-lg sm:text-xl lg:text-2xl text-primary font-semibold">
+              Electronics & Communications Engineering Student
+            </p>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-4xl mx-auto">
               Motivated and goal-oriented Electronics Engineering student seeking an entry-level position 
               to apply academic knowledge in a real-world setting, enhance technical competencies, 
               and gain hands-on experience in industry-standard tools, systems, and engineering practices.

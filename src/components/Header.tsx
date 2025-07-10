@@ -17,8 +17,14 @@ export function Header() {
   ];
 
   const handleDownloadCV = () => {
-    // For demo purposes, this would typically link to your actual CV file
-    console.log("CV download initiated");
+    // Create a link element to trigger download
+    const link = document.createElement('a');
+    link.href = '/Dave_Rodriguez_CV.pdf'; // This should be your actual CV file path
+    link.download = 'Dave_Rodriguez_CV.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
